@@ -219,6 +219,32 @@ body {
 .menu-belt .menu-belt__table .menu-belt__table--flex-container .menu-belt__table__service-price:before {
   content: '$';
 }
+.menu-belt .menu-belt__table .menu-belt__table__location-container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+.menu-belt .menu-belt__table .menu-belt__table__address-container {
+  display: flex;
+  width: 50%;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.menu-belt .menu-belt__table .menu-belt__table__address-container h2 {
+  text-align: left;
+  line-height: 1.1;
+}
+.menu-belt .menu-belt__table .menu-belt__table__address-container p {
+  font-size: 1rem;
+  letter-spacing: 1px;
+  line-height: 21px;
+}
+.menu-belt .menu-belt__table .menu-belt__table__address-container p strong {
+  font-family: "FaktPro-Medium";
+}
+.menu-belt .menu-belt__table .menu-belt__table__address-container p span.numbers {
+  font-size: 18px;
+}
 .display-belt.show {
   transform: translateX(-50%);
 }
@@ -248,33 +274,6 @@ body {
 }
 .service-subtext p {
   opacity: 0.6;
-}
-.location-container {
-  display: flex;
-  padding: 24px;
-  width: 100%;
-  height: 100%;
-}
-.address-container {
-  display: flex;
-  width: 50%;
-  flex-direction: column;
-  justify-content: space-between;
-}
-.address-container h2 {
-  text-align: left;
-  line-height: 1.1;
-}
-.address-container p {
-  font-size: 1rem;
-  letter-spacing: 1px;
-  line-height: 21px;
-}
-.address-container p strong {
-  font-family: "FaktPro-Medium";
-}
-.address-container p span.numbers {
-  font-size: 18px;
 }
 .map-container {
   background-color: grey;
