@@ -1,171 +1,277 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Bonnici HairDressing</title>
-    <link rel="stylesheet" href="css/initialize.min.css">
-    <link rel="stylesheet" href="css/app.css">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <script type="text/javascript" src="js/jquery.js"></script>
-    <script type="text/javascript" src="js/googlesheet.js"></script>
-    <script type="text/javascript">
-        function showAll() {
-            $('.menu-belt').toggleClass('show');
-        }
-        function closeMobileMenu() {
-            $('#mobile-container').style.top('100vw');
-        } 
-    </script>
-     
+<head> 
+<meta charset="UTF-8">
+<title>Bonnici Men's Hair Dressing in Ripponlea</title>
+<meta name="description" content="Situtated in Ripponlea, we are a mens hairdresser and barber with over 25 years of experience. We specialise in Kids hairdcuts and mens hair dressing.">
+<link rel="apple-touch-icon" sizes="57x57" href="./assets/favicon/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="./assets/favicon/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="./assets/favicon/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="./assets/favicon/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="./assets/favicon/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="./assets/favicon/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="./assets/favicon/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="./assets/favicon/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="./assets/favicon/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="./assets/favicon/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon/favicon-16x16.png">
+<link rel="manifest" href="./assets/favicon/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="./assets/favicon/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+
+<link rel="preload" href="./fonts/FaktPro-Medium.woff2" as="font" type="font/woff2" crossorigin>
+
+<link rel="stylesheet" href="./css/initialize.min.css">
+<link rel="stylesheet" href="./css/app.css">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<!-- <script type="text/javascript" src="./js/jquery.js"></script> -->
+<script type="text/javascript" src="./js/app.js"></script>
+<script type="text/javascript" src="./js/functions.js"></script> 
+
 </head>
 <body>
-<!--  Darken background image on mobile -->
-   <div id="overlay"></div>
-<!--  Begining of Menu Display -->
+<main>
+<div class="output"></div>
+<!-- _________________  -->
+<!-- Desktop Container  -->
+<!-- ~~~~~~~~~~~~~~~~~  -->
+
     <div id="bonnici-grid-container">
-        <div id="times" class="bonnici-grid-container__menu" >
+        <button id="times" class="bonnici-grid-container__menu" tabindex="0" role="button" aria-pressed="false" >
             <div class="menu-belt">
                 <div class="menu-belt__thumb">
                     <div class="menu-belt__thumb__icon-container">
-                        <img id="icon-times" src="/assets/icon-opening.svg" alt="Opening Times">
-                        <h2>opening times</h2>
+                        <h2>opening <br> times</h2>
+                        <img id="icon-times" src="./assets/icon-opening.svg" alt="Opening Times">
                     </div>
                 </div>
-                <div id="times-table" class="menu-belt__table"></div>
+                <div class="menu-belt__table">
+                    <img class="internal-icon" src="./assets/icon-opening.svg" alt="Opening Times">
+                    <ul class="times-table" itemscope itemtype="https://schema.org/HairSalon">
+                        <meta itemprop="serviceType" content="HairSalon" />
+                    </ul>
+                </div>
             </div>
-        </div>
-        <div id="reviews" class="bonnici-grid-container__menu" >
+        </button>
+        <button id="reviews" class="bonnici-grid-container__menu" tabindex="0" role="button" aria-pressed="false">
             <div class="menu-belt">
                 <div class="menu-belt__thumb">
                     <div class="menu-belt__thumb__icon-container">
-                        <img id="icon-reviews" src="/assets/icon-reviews.svg" alt="Reviews" >
-                        <h2>Reviews</h2>
+                        <h2>reviews</h2>
+                        <img id="icon-reviews" src="./assets/icon-reviews.svg" alt="Reviews" >
+                        
                     </div>
                 </div>
-                
+                <div class="menu-belt__table">
+                        <img class="internal-icon" src="./assets/icon-reviews.svg" alt="Reviews" >
+                        <div class="review-table"></div>
+                    </div>
             </div>
-        </div>
-        <div id="location" class="bonnici-grid-container__menu" >
+        </button>
+        <button id="location" class="bonnici-grid-container__menu" tabindex="0" role="button" aria-pressed="false">
             <div class="menu-belt">
                 <div class="menu-belt__thumb">
                     <div class="menu-belt__thumb__icon-container">
-                        <img id="icon-location" src="/assets/icon-location.svg" alt="Location" >
-                        <h2>Location</h2>
+                        <h2>location</h2>
+                        <img id="icon-location" src="./assets/icon-location.svg" alt="Location" >
                     </div>
                 </div>
                     <div class="menu-belt__table">
-                        <div class="menu-belt__table--flex-container">
                             <div class="menu-belt__table__location-container">
                                 <div class="menu-belt__table__address-container">
-                                    <h2>BONNICI'S<br>Hairdressing</h2>
-                                    <p><strong><span class="numbers">71</span> GLEN EIRA RD</strong>,<br>RIPPONLEA<br>VICTORIA</p>
+                                    <h2>bonnici's<br>hairdressing</h2>
+                                    <p><strong><span class="numbers">71</span> glen eira rd</strong>,<br>ripponlea<br>victoria</p>
                                 </div>
                                 <div id="map"></div>
                                 <div class="menu-belt__table__map"><div class="mapouter"><div class="gmap_canvas"><iframe id="gmap_canvas" src="https://maps.google.com/maps?q=71%20Glen%20Eira%20rd%20Ripponlea%2C%20Victoria&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe></div><style>.mapouter{position:relative;text-align:right;height:100%;width:100%;}.gmap_canvas {overflow:hidden;background:none!important;height:100%;width:100%;}</style></div></div>
                             </div>
-                        </div>
                     </div>
             </div>
-        </div>
-        <div id="logo" class="bonnici-grid-container__menu" >
-            <img src="/assets/bonicci-logo.svg" alt="Bonicci - Men's Hairdressing" onclick="showAll()">
-        </div>
-        <div id="pricing" class="bonnici-grid-container__menu" >
-            <div class="menu-belt">
+        </button>
+        <button id="logo" class="bonnici-grid-container__menu" tabindex="0" role="button" aria-pressed="false">
+            <img src="./assets/bonnici-logo.svg" alt="Bonnici - Men's Hairdressing" onclick="showAll()">
+        </button>
+        <button id="pricing" class="bonnici-grid-container__menu" tabindex="0" role="button" aria-pressed="false">
+            <div class="menu-belt" >
                 <div class="menu-belt__thumb">
                     <div class="menu-belt__thumb__icon-container">
-                        <img id="icon-pricing" src="/assets/icon-pricing.svg" alt="Pricing and Services" >
-                        <h2>Pricing &amp; Services</h2>
+                        <h2>pricing &amp;<br> services</h2>
+                        <img id="icon-pricing" src="./assets/icon-pricing.svg" alt="Pricing and Services" >
                     </div>
                 </div>
-                <div id="pricing-table" class="menu-belt__table">
-<!--
-                    <div class="menu-belt__table--flex-container">
-                        <div class="menu-belt__table__service">old age pensioner
-                            <p class="menu-belt__table__service-description">Mens haircuts with scissors/clippers. With Neck shave</p>
-                        </div>
-                            <div class="menu-belt__table__service-price">15</div>
-                        
-                    </div>
--->
+                <div class="menu-belt__table" itemscope itemtype="https://schema.org/Service">
+                    <meta itemprop="serviceType" content="Hair Salon" />
+                    <img class="internal-icon" src="./assets/icon-pricing.svg" alt="Pricing and Services" >
+                    <ul class="pricing-table"></ul>
                 </div>
 
             </div>
-        </div>
+        </button>
         <div id="blurb" class="bonnici-grid-container__menu" >
            <div id="blurb__container">
-                <h1><i>Hello &amp; Wellcome to</i><br />bonnici's hairdressing</h1>
+                <div class="title">Family<span>&amp;</span>Tradition</div><h1>bonnici's men's hairdressing</h1>
                 <hr>
-                <p>We are a family based hairdressing salon with over 15 years of experience in Ripponlea&nbsp;Village.</p>
+                <p>We are a family based hairdressing salon with over 27 years of experience in Ripponlea&nbsp;Village.</p>
             </div>
         </div>
-        <div id="contact" class="bonnici-grid-container__menu" >
+        <button id="contact" class="bonnici-grid-container__menu" tabindex="0" role="button" aria-pressed="false">
             <div class="menu-belt">
                 <div class="menu-belt__thumb">
                     <div class="menu-belt__thumb__icon-container">
-                        <img id="icon-contact" src="/assets/icon-contact.svg" alt="Contact" >
-                        <h2>Contact Us</h2>
+                        <h2>contact</h2>
+                        <img id="icon-contact" src="./assets/icon-contact.svg" alt="Contact" >
                     </div>
                 </div>
-                
+                <div class="menu-belt__table">
+                    <img class="internal-icon" src="./assets/icon-contact.svg" alt="Contact" >
+                    <div class="contact-table"></div>
+                </div>
             </div>
-        </div>
+        </button>
         <div id="follow" class="bonnici-grid-container__menu" ></div>
     </div>
-<!--    <div id="mobile-container">
-        <div class="menu-belt__thumb">
-            <div class="menu-belt__thumb__icon-container">
-                <img src="/assets/icon-pricing.svg" alt="Pricing and Services" id="icon-pricing">
-                <h2>Pricing &amp; Services</h2>
+
+<!-- ________________  -->
+<!-- Mobile Container  -->
+<!-- ~~~~~~~~~~~~~~~~  -->
+
+    <div id="bonnici-mobile-container">
+        <div class="bonnici-mobile-container__menu">
+            <div class="mob times-table" data-ref="times">
+                <div class="button-head">
+                    <img id="icon-times" src="./assets/icon-opening.svg" alt="Opening Times">
+                    <button type="button" id="close" onclick="hideMobileContainer()">
+                        <div class="close-line"></div>
+                        <div class="close-line"></div>
+                    </button>
+                </div>
             </div>
-        </div>
-       <div id="inner-table">
-           <div class="inner-container">
-                <div class="service-name"><h2>Old Age Pensioners</h2></div>
-                <div class="price"><h3>15</h3></div>
-                <div class="service-subtext"><p>Mens haircuts with scissors/clippers. With Neck shave </p></div>
+            <div class="mob pricing-table" data-ref="pricing">
+                <div class="button-head">
+                    <img id="icon-pricing" src="./assets/icon-pricing.svg" alt="Pricing and Services" >
+                    <button type="button" id="close" onclick="hideMobileContainer()">
+                        <div class="close-line"></div>
+                        <div class="close-line"></div>
+                    </button>
+                </div>
             </div>
-            <div class="inner-container">
-                <div class="service-name"><h2>Beard Trim</h2></div>
-                <div class="price"><h3>25</h3></div>
-                <div class="service-subtext"><p>some here to explain</p></div>
+            <div class="mob menu-belt__table__location-container" data-ref="location">
+                <div class="button-head">
+                    <img id="icon-location" src="./assets/icon-location.svg" alt="Location" >
+                    <button type="button" id="close" onclick="hideMobileContainer()">
+                        <div class="close-line"></div>
+                        <div class="close-line"></div>
+                    </button>
+                </div>
+                <div class="menu-belt__table__address-container">
+                    <h2>bonnici's<br>hairdressing</h2>
+                    <p><strong><span class="numbers">71</span> glen eira rd</strong>,<br>ripponlea<br>victoria</p>
+                </div>
+                <div id="map"></div>
+                <div class="menu-belt__table__map"><div class="mapouter"><div class="gmap_canvas"><iframe id="gmap_canvas" src="https://maps.google.com/maps?q=71%20Glen%20Eira%20rd%20Ripponlea%2C%20Victoria&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe></div><style>.mapouter{position:relative;text-align:right;height:100%;width:100%;}.gmap_canvas {overflow:hidden;background:none!important;height:100%;width:100%;}</style></div></div>
             </div>
-            <div class="inner-container">
-                <div class="service-name"><h2>Kids Haircut</h2></div>
-                <div class="price"><h3>14</h3></div>
-                <div class="service-subtext"><p>some here to explain</p></div>
+            <div id="contact" class="mob contact-table" data-ref="contact">
+                <div class="button-head">
+                    <img id="icon-times" src="./assets/icon-opening.svg" alt="Opening Times">
+                    <button type="button" id="close" onclick="hideMobileContainer()">
+                        <div class="close-line"></div>
+                        <div class="close-line"></div>
+                    </button>
+                </div>
             </div>
-            <div class="inner-container">
-                <div class="service-name"><h2>Old Age Pensioners</h2></div>
-                <div class="price"><h3>15</h3></div>
-                <div class="service-subtext"><p>Mens haircuts with scissors/clippers. With Neck shave </p></div>
+            <div id="reviews" class="mob review-table" data-ref="reviews">
+                <div class="button-head">
+                    <img id="icon-times" src="./assets/icon-opening.svg" alt="Opening Times">
+                    <button type="button" id="close" onclick="hideMobileContainer()">
+                        <div class="close-line"></div>
+                        <div class="close-line"></div>
+                    </button>
+                </div>
             </div>
-            <div class="inner-container">
-                <div class="service-name"><h2>Beard Trim</h2></div>
-                <div class="price"><h3>25</h3></div>
-                <div class="service-subtext"><p>some here to explain</p></div>
-            </div>
-            <div class="inner-container">
-                <div class="service-name"><h2>Kids Haircut</h2></div>
-                <div class="price"><h3>14</h3></div>
-                <div class="service-subtext"><p>some here to explain</p></div>
-            </div>
-        </div>
-        <div class="button-gradient">
-            <button class="close" onclick="closeMobileMenu()">x</button>
-        </div>
-        
-    </div>-->
-    <script>
-      var map;
-      function initMap() {
-        map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: -34.397, lng: 150.644},
-          zoom: 8
-        });
-      }
+        </div> 
+    </div>
+
+<!-- _________________  -->
+<!-- Message Container  -->
+<!-- ~~~~~~~~~~~~~~~~~  -->
+
+ <div id="important-msg" class="hide">
+     <div class="close-button">
+         <h2>bonnici hairdressing</h2>
+         <button type="button" id="close" onclick="hideMsgContainer()">
+            <div class="close-line"></div>
+            <div class="close-line"></div>
+        </button>
+     </div>
+     <div id="message"></div>
+     <div class="footer">
+         <h2>notice</h2>
+         <div class="line"></div>
+     </div>
+ </div>
+    <script type="text/javascript">
+        // const buttons = document.querySelectorAll('.bonnici-grid-container__menu');
+        // buttons.forEach(button => {
+            
+        //     button.addEventListener('mouseenter', event => {
+        //         var isButtonOpen = button.ariaPressed;
+        //         if (isButtonOpen == 'true') {return}
+        //         else {
+        //             console.log("Button closed");
+        //             button.ariaPressed="true";
+        //             mobileMenu(event.target.id);
+        //             showContainer(event.target.id);
+        //         }
+        //     })
+
+        //     button.addEventListener('mouseleave', event => {
+        //         var isButtonOpen = button.ariaPressed;
+        //         if (isButtonOpen == 'true') {
+        //             button.ariaPressed="false";
+        //             showContainer(event.target.id);
+        //             console.log("Closing Button");
+        //         } else {return}
+        //     })
+
+        //     button.addEventListener('click', event => {
+        //         var isButtonOpen = button.ariaPressed;
+        //         if (isButtonOpen == 'true') {
+        //             button.ariaPressed = "false";
+        //             showContainer(event.target.id);
+        //             mobileMenu(event.target.id);
+        //         }
+        //         else {
+        //             button.ariaPressed = "true";
+        //             showContainer(event.target.id);
+        //             mobileMenu(event.target.id);
+        //             console.log("Button Open");
+        //         }
+        //     })
+            
+        // })
+        // var element = document.querySelectorAll(".bonnici-grid-container__menu");
+        // for (i=0; i<element.length; i++){
+        //     element[i].addEventListener("mouseenter", function(event){ 
+        //         var name = this.id;
+        //         showContainer(name); 
+        //     });
+        // }
+        // for (i=0; i<element.length; i++){
+        //     element[i].addEventListener("mouseleave", function(event){ 
+        //         var name = this.id;
+        //         showContainer(name); 
+        //     });
+        // }
+        // for (i=0; i<element.length; i++){
+        //     element[i].addEventListener("click", function(event){ 
+        //         var name = this.id;
+        //         mobileMenu(name); 
+        //     });
+        // }   
     </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCUSm-Ki0fbiMFshq7_yeThX5X46udIQOU&callback=initMap"
-    async defer></script>
+</main>
 </body>
 </html>
